@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/test', function (
+) {
+    $books = ['PHP','Javascript','CSS'];
+    $name = 'Mahmoud';
+    return view('test.test',['books'=>$books,'name'=>$name]);
+});
+
+    
