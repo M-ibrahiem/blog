@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', function () {
-    return view('blog');
+    return view('welcome');
 });
+
+Route::get('/test',[TestController::class,'testAction']);
+
+
+// 1- define a new route so the user can acces it through browser
+// 2- difine controller that reners a veiw
+// 3- define view that contains list of posts
+// 4- remove any static html data from the view

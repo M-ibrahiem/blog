@@ -14,9 +14,4 @@ class Controller extends BaseController  // StydlyCase
         $name = 'Mahmoud';
         return view('test.test',['books'=>$books,'name'=>$name]);
     }
-
-    public function greet()
-    {
-        return 'hello this is greet action';
-    }
 }
