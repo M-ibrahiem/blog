@@ -4,29 +4,26 @@ namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
     //
     public function index(){
-        // return "<h1>One day, God willing</h1>";
-        $allPosts =[
-            ['id' => 1, 'title' => 'PHP', 'posted_by'         => 'Mahmoud'   , 'created_at' => '2024-2-5 01:15:00'],
-            ['id' => 2, 'title' => 'Javascript', 'posted_by'  => 'Ibrahim'   , 'created_at' => '2024-2-5 01:15:00'],
-            ['id' => 3, 'title' => 'HTML', 'posted_by'        => 'Hussien'   , 'created_at' => '2024-2-5 01:15:00'],
-            ['id' => 4, 'title' => 'CSS', 'posted_by'         => 'Elsharakwy', 'created_at' => '2024-2-5 01:15:00'],
-        ];
-        return view('posts.index',['posts' => $allPosts]);
+        //select * from posts; 
+        $postsFromDB = Post::all(); // colection object
+       
+        return view('posts.index',['posts' => $postsFromDB]);
     }
-    public function show($postId)
+    // public function show($postId)
+    public function show(Post $post)
     {
-        // return "<h1> Hiiiiiiiii</h1>";
-        $singlePost =
-        [
-           'id' => 1,'description' => 'Thanks God ', 'title' => 'PHP', 'posted_by'=> 'Mahmoud','created_at' => '2024-2-5 01:15:00'
-            
-        ];
-        return view('posts.show',['post' => $singlePost]);
+
+        // $singelPostFromDB = Post::find($postId);
+        // $singelPostFromDB = Post::findOrFail($postId);
+        // return view('posts.show',['post' => $singlePost]);
+        // return view('posts.show',['post' => $singelPostFromDB]);
+        return view('posts.show',['post' => $post]);
     }
     public function create(){
         return view('posts.create');

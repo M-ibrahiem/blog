@@ -59,3 +59,9 @@ Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('posts.de
 // 3- define view that contains list of posts
 // 4- remove any static html data from the view
 
+
+
+//! database
+    // 1- structure change for database (create table , edit coulmn ,remove coulmn)
+    // 2- operations on database (insert record , edit record , delete record)
+     
